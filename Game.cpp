@@ -136,9 +136,9 @@ void Game::update(float dt) {
 			// Check for collisions with bullets
 			for (auto it2 = this->spaceship->Bullets.begin(); it2 != this->spaceship->Bullets.end();) {
 
-				if (it->checkBulletCollision((*it2))) {
+				if (it->boxCircleCollision((*it2))) {
 
-					it->isDestroyed = true;
+              					it->isDestroyed = true;
 					it2 = this->spaceship->Bullets.erase(it2);
 				}
 				else {
@@ -153,6 +153,7 @@ void Game::update(float dt) {
 				this->State = GAME_OVER;
 			}
 
+			// If the destroyed flag has been set, remove the asteroid
 			if (it->isDestroyed) {
 				
 				it = Asteroids.erase(it);
@@ -240,6 +241,7 @@ void Game::initAsteroids(unsigned int numAsteroids, Texture2D asteroid) {
 
 		Asteroid newAsteroid(false, randLocation, randSize, asteroid, glm::vec3(1.0f), velocity);
 		newAsteroid.Rotation = 0.0f;
+		newAsteroid.hitboxRadius = randSize.y / 2;
 		this->Asteroids.push_back(newAsteroid);
 	}
 }
@@ -270,6 +272,7 @@ void Game::addAsteroids(Texture2D texture) { // TODO: Combine these two function
 
 		// Create a new asteroid object
 		Asteroid newAsteroid(false, randLocation, glm::vec2(randSize, randSize), texture, glm::vec3(1.0f), velocity);
+		newAsteroid.hitboxRadius = randSize / 2;
 		this->Asteroids.push_back(newAsteroid);
 	}
 }
