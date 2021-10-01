@@ -147,7 +147,7 @@ void Game::update(float dt) {
 			}
 
 			// Check collisions with earth and spaceship (cause game over)
-			if (it->checkCollision(earth) || it->checkCollision(spaceship)) {
+			if (it->circleCircleCollision(earth) || it->boxCircleCollision(*spaceship)) {
 
 				it->isDestroyed = true;
 				this->State = GAME_OVER;

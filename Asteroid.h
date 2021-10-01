@@ -14,9 +14,9 @@ public:
 		: GameObject(pos, size, sprite, color, velocity), isDestroyed(destroyed) {};
 
 	void updateLocation(float dt);
-	bool checkCollision(GameObject* object);
+	bool boxBoxCollision(GameObject* object);
 	bool boxCircleCollision(GameObject& object);
-	bool checkBulletCollision(GameObject& bullet);
+	bool circleCircleCollision(GameObject* object);
 
 private:
 	

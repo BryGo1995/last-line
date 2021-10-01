@@ -6,7 +6,7 @@ void Asteroid::updateLocation(float dt) {
 	this->Position += this->Velocity * dt;
 }
 
-bool Asteroid::checkCollision(GameObject* object) {
+bool Asteroid::boxBoxCollision(GameObject* object) {
 
 	// Collision on x axis
 	bool collisionX = this->Position.x + this->Size.x >= object->Position.x &&
@@ -49,15 +49,22 @@ bool Asteroid::boxCircleCollision(GameObject& object) {
 	return glm::length(diff) < this->hitboxRadius;
 }
 
-bool Asteroid::checkBulletCollision(GameObject& bullet) {
+bool Asteroid::circleCircleCollision(GameObject* object) {
 
-	// Collision on x axis
-	bool collisionX = this->Position.x + this->Size.x >= bullet.Position.x &&
-		bullet.Position.x + bullet.Size.x >= this->Position.x;
+	// Calculate the radius of both circular hitboxes
+	float asteroidRadius = this->Size.x / 2;
+	float objectRadius = object->Size.x / 2;
 
-	// Collision on y axis
-	bool collisionY = this->Position.y + this->Size.y >= bullet.Position.y &&
-		bullet.Position.y + bullet.Size.y >= this->Position.y;
+	// Calculate the center of the asteroid and objects
+	glm::vec2 asteroidCenter, objectCenter;
+	asteroidCenter = glm::vec2(this->Position.x + this->Size.x / 2,
+		this->Position.y + this->Size.y / 2);
+	objectCenter = glm::vec2(object->Position.x + object->Size.x / 2,
+		object->Position.y + object->Size.y / 2);
 
-	return collisionX && collisionY;
+	// Calculate the distance between the two centers
+	float distance = glm::length(asteroidCenter - objectCenter);
+
+	// Compare the distance to the sum of the two radii
+	return distance <= (asteroidRadius + objectRadius);
 }
