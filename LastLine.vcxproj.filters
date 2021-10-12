@@ -57,6 +57,9 @@
     <ClCompile Include="Asteroid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TextRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shader.h">
@@ -86,6 +89,9 @@
     <ClInclude Include="Asteroid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TextRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="fanshader.vert">
@@ -98,6 +104,12 @@
       <Filter>Resource Files\Shaders</Filter>
     </None>
     <None Include="2Dshader.frag">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="glyphShader.vert">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="glyphShader.frag">
       <Filter>Resource Files\Shaders</Filter>
     </None>
   </ItemGroup>

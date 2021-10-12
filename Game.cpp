@@ -46,6 +46,16 @@ void Game::init() {
 	unsigned int numAsteroids = 3;
 	this->initAsteroids(numAsteroids, asteroid);
 
+	// Initialize the score renderer in the center of the planet
+	this->scoreDisplay.init("glyphShader.vert", "glyphShader.frag");
+	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+	this->scoreDisplay.importCharacters("Antonio-Regular.ttf", 0, 256, 128);
+
+	// Set the text renderer uniform
+	glm::mat4 t_projection = glm::ortho(0.0f, static_cast<float>(Width), 0.0f, static_cast<float>(Height));
+	ResourceManager::GetShader("glyph").Use();
+	ResourceManager::GetShader("glyph").SetMatrix4("projection", t_projection, true);
+
 	// Initialize the boost and ammo meter
 	this->boostMeter = 100.0f;
 	this->ammoMeter = 100.0f;
@@ -158,6 +168,9 @@ void Game::update(float dt) {
 				
 				it = Asteroids.erase(it);
 				wasCollision = true;
+				
+				// Increment the score
+				this->score += 1;
 			}
 			else {
 				++it;
@@ -168,6 +181,9 @@ void Game::update(float dt) {
 		if (wasCollision) {
 			this->addAsteroids(ResourceManager::GetTexture("asteroid"));
 		}
+
+		// Update the score display
+		this->updateScore();
 
 		// Update the boost meter to increase slowly with a cap of 100
 		if (this->boostMeter > 100.0f) {
@@ -275,6 +291,15 @@ void Game::addAsteroids(Texture2D texture) { // TODO: Combine these two function
 		newAsteroid.hitboxRadius = randSize / 2;
 		this->Asteroids.push_back(newAsteroid);
 	}
+}
+
+void Game::updateScore() {
+
+	// Convert the integer value of the score to a string
+	std::string score = std::to_string(this->score);
+	
+	// Update the score display
+	this->scoreDisplay.renderText(score, 625.0f, 10.0f, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f));
 }
 
 void Game::reset() {

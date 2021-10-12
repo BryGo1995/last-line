@@ -5,6 +5,7 @@
 #include"GameObject.h"
 #include"Spaceship.h"
 #include"Asteroid.h"
+#include"TextRenderer.h"
 
 #include<GLFW/glfw3.h>
 #include<glm/glm.hpp>
@@ -12,6 +13,7 @@
 #include<glm/gtc/random.hpp>
 #include<vector>
 #include<iostream>
+#include<string>
 
 enum GameState {
 
@@ -34,6 +36,9 @@ public:
 	std::vector<Asteroid> Asteroids;
 	GameObject* gameOver;
 
+	unsigned int score;
+	TextRenderer scoreDisplay;
+
 	float boostMeter;
 	float ammoMeter;
 
@@ -53,6 +58,8 @@ private:
 	void initAsteroids(unsigned int numAsteroids, Texture2D asteroid);
 
 	void addAsteroids(Texture2D texture);
+
+	void updateScore();
 
 	void reset();
 };

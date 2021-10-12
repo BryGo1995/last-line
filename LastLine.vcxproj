@@ -96,7 +96,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -125,7 +125,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -156,6 +156,7 @@
     <ClCompile Include="Spaceship.cpp" />
     <ClCompile Include="SpriteRenderer.cpp" />
     <ClCompile Include="stb_image.cpp" />
+    <ClCompile Include="TextRenderer.cpp" />
     <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -167,6 +168,7 @@
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Spaceship.h" />
     <ClInclude Include="SpriteRenderer.h" />
+    <ClInclude Include="TextRenderer.h" />
     <ClInclude Include="Texture.h" />
   </ItemGroup>
   <ItemGroup>
@@ -174,6 +176,8 @@
     <None Include="2Dshader.vert" />
     <None Include="fanshader.frag" />
     <None Include="fanshader.vert" />
+    <None Include="glyphShader.frag" />
+    <None Include="glyphShader.vert" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="asteroid.png" />
