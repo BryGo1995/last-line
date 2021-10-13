@@ -315,4 +315,7 @@ void Game::reset() {
 
 	// Reset the asteroids (default 3 initial asteroids)
 	this->initAsteroids(3, ResourceManager::GetTexture("asteroid"));
+
+	// Reset the score
+	this->score = 0;
 }

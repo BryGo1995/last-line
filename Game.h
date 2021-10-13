@@ -15,6 +15,7 @@
 #include<iostream>
 #include<string>
 
+
 enum GameState {
 
 	GAME_ACTIVE,
