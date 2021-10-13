@@ -40,6 +40,8 @@ public:
 	unsigned int score;
 	TextRenderer scoreDisplay;
 
+	TextRenderer BoostDisplay;
+
 	float boostMeter;
 	float ammoMeter;
 
@@ -61,6 +63,8 @@ private:
 	void addAsteroids(Texture2D texture);
 
 	void updateScore();
+
+	void updateBoost();
 
 	void reset();
 };

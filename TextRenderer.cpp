@@ -8,7 +8,10 @@ TextRenderer::~TextRenderer()
 {
 }
 
-int TextRenderer::init(const char* vertex_shader, const char* fragment_shader) {
+int TextRenderer::init(const char* vertex_shader, const char* fragment_shader, const char* name) {
+
+	// Set the name to be used in the shader
+	this->ShaderName = name;
 
 	// Load the font using freetype
 	if (FT_Init_FreeType(&this->ft)) {
@@ -17,7 +20,7 @@ int TextRenderer::init(const char* vertex_shader, const char* fragment_shader) {
 	}
 
 	// Load the shader program
-	ResourceManager::LoadShader(vertex_shader, fragment_shader, nullptr, "glyph");
+	ResourceManager::LoadShader(vertex_shader, fragment_shader, nullptr, this->ShaderName);
 
 	// Initialize the VBO and VAO
 	glGenVertexArrays(1, &this->VAO);
@@ -74,8 +77,8 @@ int TextRenderer::importCharacters(const char* file, FT_UInt pixel_width, FT_UIn
 
 void TextRenderer::renderText(std::string text, float x_pos, float y_pos, float scale, glm::vec3 color) {
 	// Activate the shader program
-	ResourceManager::GetShader("glyph").Use();
-	ResourceManager::GetShader("glyph").SetVector3f("textColor", color, true);
+	ResourceManager::GetShader(this->ShaderName).Use();
+	ResourceManager::GetShader(this->ShaderName).SetVector3f("textColor", color, true);
 	glActiveTexture(GL_TEXTURE0);
 	glBindVertexArray(this->VAO);
 

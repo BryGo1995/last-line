@@ -22,8 +22,9 @@ public:
 
 	std::map<char, Character> Characters;	// Map to hold characters for easy access
 	FT_Library ft;
+	const char* ShaderName;
 
-	int init(const char* vertex_shader, const char* fragment_shader);
+	int init(const char* vertex_shader, const char* fragment_shader, const char* name);
 	int importCharacters(const char* file, FT_UInt pixel_width, FT_UInt pixel_height, unsigned int num_char);
 	void renderText(std::string text, float x_pos, float y_pos, float scale, glm::vec3 color);
 
