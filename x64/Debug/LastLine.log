@@ -1,3 +1,1 @@
-﻿  Game.cpp
-C:\Users\broni\source\repos\LastLine\Game.cpp(11,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  LastLine.vcxproj -> C:\Users\broni\source\repos\LearnOpenGL\x64\Debug\LastLine.exe
+﻿  LastLine.vcxproj -> C:\Users\broni\source\repos\LearnOpenGL\x64\Debug\LastLine.exe

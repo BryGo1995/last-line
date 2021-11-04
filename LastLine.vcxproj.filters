@@ -11,125 +11,142 @@
     </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>vert;frag;ttf;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Resource Files\Shaders">
       <UniqueIdentifier>{973d2f33-86f7-4cc6-82a8-82e3bc5e182b}</UniqueIdentifier>
+      <Extensions>vert;frag;</Extensions>
     </Filter>
     <Filter Include="Resource Files\Textures">
       <UniqueIdentifier>{76899695-6e45-4c93-b24a-15c8a31c992a}</UniqueIdentifier>
+      <Extensions>png;jpg;</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\Fonts">
+      <UniqueIdentifier>{93bec469-8ae7-41d8-b635-a59409edbba0}</UniqueIdentifier>
+      <Extensions>ttf;</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\Asteroid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Shader.cpp">
+    <ClCompile Include="src\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\LearnOpenGL\Camera.cpp">
+    <ClCompile Include="src\GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="glad.c">
+    <ClCompile Include="src\glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SpriteRenderer.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Texture.cpp">
+    <ClCompile Include="src\ResourceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ResourceManager.cpp">
+    <ClCompile Include="src\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="stb_image.cpp">
+    <ClCompile Include="src\Spaceship.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
+    <ClCompile Include="src\SpriteRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
+    <ClCompile Include="src\stb_image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Spaceship.cpp">
+    <ClCompile Include="src\TextRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Asteroid.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TextRenderer.cpp">
+    <ClCompile Include="src\Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Shader.h">
+    <ClInclude Include="src\Asteroid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\LearnOpenGL\Camera.h">
+    <ClInclude Include="src\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SpriteRenderer.h">
+    <ClInclude Include="src\GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Texture.h">
+    <ClInclude Include="src\ResourceManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ResourceManager.h">
+    <ClInclude Include="src\Shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
+    <ClInclude Include="src\Spaceship.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h">
+    <ClInclude Include="src\SpriteRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Spaceship.h">
+    <ClInclude Include="src\TextRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Asteroid.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TextRenderer.h">
+    <ClInclude Include="src\Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="fanshader.vert">
+    <Font Include="resources\fonts\Antonio-Regular.ttf">
+      <Filter>Resource Files\Fonts</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\shaders\2Dshader.frag">
       <Filter>Resource Files\Shaders</Filter>
     </None>
-    <None Include="fanshader.frag">
+    <None Include="resources\shaders\2Dshader.vert">
       <Filter>Resource Files\Shaders</Filter>
     </None>
-    <None Include="2Dshader.vert">
+    <None Include="resources\shaders\fanshader.frag">
       <Filter>Resource Files\Shaders</Filter>
     </None>
-    <None Include="2Dshader.frag">
+    <None Include="resources\shaders\fanshader.vert">
       <Filter>Resource Files\Shaders</Filter>
     </None>
-    <None Include="glyphShader.vert">
+    <None Include="resources\shaders\glyphShader.frag">
       <Filter>Resource Files\Shaders</Filter>
     </None>
-    <None Include="glyphShader.frag">
+    <None Include="resources\shaders\glyphShader.vert">
       <Filter>Resource Files\Shaders</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="awesomeface.png">
+    <Image Include="resources\sprites\16-bit_Ship.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>
-    <Image Include="planet.png">
+    <Image Include="resources\sprites\asteroid.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>
-    <Image Include="earth.png">
+    <Image Include="resources\sprites\bullet.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>
-    <Image Include="spaceship.png">
+    <Image Include="resources\sprites\earth.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>
-    <Image Include="bullet.png">
+    <Image Include="resources\sprites\game_over.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>
-    <Image Include="asteroid.png">
+    <Image Include="resources\sprites\planet.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="resources\sprites\ship2.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="resources\sprites\SpaceGun.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="resources\sprites\spaceship.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="resources\sprites\xfighter.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>
   </ItemGroup>

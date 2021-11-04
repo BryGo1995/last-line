@@ -18,6 +18,54 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Asteroid.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\GameObject.cpp" />
+    <ClCompile Include="src\glad.c" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\ResourceManager.cpp" />
+    <ClCompile Include="src\Shader.cpp" />
+    <ClCompile Include="src\Spaceship.cpp" />
+    <ClCompile Include="src\SpriteRenderer.cpp" />
+    <ClCompile Include="src\stb_image.cpp" />
+    <ClCompile Include="src\TextRenderer.cpp" />
+    <ClCompile Include="src\Texture.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Asteroid.h" />
+    <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\GameObject.h" />
+    <ClInclude Include="src\ResourceManager.h" />
+    <ClInclude Include="src\Shader.h" />
+    <ClInclude Include="src\Spaceship.h" />
+    <ClInclude Include="src\SpriteRenderer.h" />
+    <ClInclude Include="src\TextRenderer.h" />
+    <ClInclude Include="src\Texture.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="resources\fonts\Antonio-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\shaders\2Dshader.frag" />
+    <None Include="resources\shaders\2Dshader.vert" />
+    <None Include="resources\shaders\fanshader.frag" />
+    <None Include="resources\shaders\fanshader.vert" />
+    <None Include="resources\shaders\glyphShader.frag" />
+    <None Include="resources\shaders\glyphShader.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\sprites\16-bit_Ship.png" />
+    <Image Include="resources\sprites\asteroid.png" />
+    <Image Include="resources\sprites\bullet.png" />
+    <Image Include="resources\sprites\earth.png" />
+    <Image Include="resources\sprites\game_over.png" />
+    <Image Include="resources\sprites\planet.png" />
+    <Image Include="resources\sprites\ship2.png" />
+    <Image Include="resources\sprites\SpaceGun.png" />
+    <Image Include="resources\sprites\spaceship.png" />
+    <Image Include="resources\sprites\xfighter.png" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -72,16 +120,16 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\broni\source\repos\LastLine\Libraries\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\broni\source\repos\LastLine\Libraries\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\broni\source\repos\LastLine\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\broni\source\repos\LastLine\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\broni\source\repos\LastLine\Libraries\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\broni\source\repos\LastLine\Libraries\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\broni\source\repos\LastLine\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\broni\source\repos\LastLine\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -144,49 +192,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\LearnOpenGL\Camera.cpp" />
-    <ClCompile Include="Asteroid.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="glad.c" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="ResourceManager.cpp" />
-    <ClCompile Include="Shader.cpp" />
-    <ClCompile Include="Spaceship.cpp" />
-    <ClCompile Include="SpriteRenderer.cpp" />
-    <ClCompile Include="stb_image.cpp" />
-    <ClCompile Include="TextRenderer.cpp" />
-    <ClCompile Include="Texture.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\LearnOpenGL\Camera.h" />
-    <ClInclude Include="Asteroid.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="ResourceManager.h" />
-    <ClInclude Include="Shader.h" />
-    <ClInclude Include="Spaceship.h" />
-    <ClInclude Include="SpriteRenderer.h" />
-    <ClInclude Include="TextRenderer.h" />
-    <ClInclude Include="Texture.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="2Dshader.frag" />
-    <None Include="2Dshader.vert" />
-    <None Include="fanshader.frag" />
-    <None Include="fanshader.vert" />
-    <None Include="glyphShader.frag" />
-    <None Include="glyphShader.vert" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="asteroid.png" />
-    <Image Include="awesomeface.png" />
-    <Image Include="bullet.png" />
-    <Image Include="earth.png" />
-    <Image Include="planet.png" />
-    <Image Include="spaceship.png" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

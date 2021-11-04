@@ -11,7 +11,7 @@ void Game::init() {
 	srand(time(0));
 
 	// Load the shaders
-	ResourceManager::LoadShader("2Dshader.vert", "2Dshader.frag", nullptr, "sprite");
+	ResourceManager::LoadShader("resources/shaders/2Dshader.vert", "resources/shaders/2Dshader.frag", nullptr, "sprite");
 	// Configure the shader uniforms
 	glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(this->Width), static_cast<float>(this->Height), 0.0f, -1.0f, 1.0f);
 	
@@ -26,11 +26,11 @@ void Game::init() {
 	Renderer = new SpriteRenderer(myShader);
 
 	// Load textures
-	ResourceManager::LoadTexture("earth.png", true, "earth");
-	ResourceManager::LoadTexture("ship2.png", true, "ship");
-	ResourceManager::LoadTexture("bullet.png", true, "bullet");
-	ResourceManager::LoadTexture("asteroid.png", true, "asteroid");
-	ResourceManager::LoadTexture("game_over.png", true, "game_over");
+	ResourceManager::LoadTexture("resources/sprites/earth.png", true, "earth");
+	ResourceManager::LoadTexture("resources/sprites/ship2.png", true, "ship");
+	ResourceManager::LoadTexture("resources/sprites/bullet.png", true, "bullet");
+	ResourceManager::LoadTexture("resources/sprites/asteroid.png", true, "asteroid");
+	ResourceManager::LoadTexture("resources/sprites/game_over.png", true, "game_over");
 	Texture2D earth = ResourceManager::GetTexture("earth");
 	Texture2D ship = ResourceManager::GetTexture("ship");
 	Texture2D bullet = ResourceManager::GetTexture("bullet");
@@ -47,11 +47,11 @@ void Game::init() {
 	this->initAsteroids(numAsteroids, asteroid);
 
 	// Initialize the text renderer objects for the score and boost meter
-	this->scoreDisplay.init("glyphShader.vert", "glyphShader.frag", "score");
-	this->BoostDisplay.init("glyphShader.vert", "glyphShader.frag", "boost");
+	this->scoreDisplay.init("resources/shaders/glyphShader.vert", "resources/shaders/glyphShader.frag", "score");
+	this->BoostDisplay.init("resources/shaders/glyphShader.vert", "resources/shaders/glyphShader.frag", "boost");
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-	this->scoreDisplay.importCharacters("Antonio-Regular.ttf", 0, 256, 128);
-	this->BoostDisplay.importCharacters("Antonio-Regular.ttf", 0, 256, 128);
+	this->scoreDisplay.importCharacters("resources/fonts/Antonio-Regular.ttf", 0, 256, 128);
+	this->BoostDisplay.importCharacters("resources/fonts/Antonio-Regular.ttf", 0, 256, 128);
 
 	// Set the text renderer uniforms to have the same orthographic projection
 	glm::mat4 t_projection = glm::ortho(0.0f, static_cast<float>(Width), 0.0f, static_cast<float>(Height));
