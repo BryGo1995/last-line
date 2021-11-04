@@ -32,6 +32,8 @@ public:
 
 	Texture2D BulletTexture;
 	std::vector<GameObject> Bullets;
+	
+	unsigned int BoostMeter;
 
 	Spaceship(float angle, float radius, glm::vec2 pos, glm::vec2 size, Texture2D sprite, glm::vec3 color, glm::vec2 velocity, float angvelocity)
 		: GameObject(pos, size, sprite, color, velocity), Angle{ angle }, Radius{ radius }, AngVelocity{ angvelocity } {};

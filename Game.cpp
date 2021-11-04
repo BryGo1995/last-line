@@ -46,15 +46,19 @@ void Game::init() {
 	unsigned int numAsteroids = 3;
 	this->initAsteroids(numAsteroids, asteroid);
 
-	// Initialize the score renderer in the center of the planet
-	this->scoreDisplay.init("glyphShader.vert", "glyphShader.frag");
+	// Initialize the text renderer objects for the score and boost meter
+	this->scoreDisplay.init("glyphShader.vert", "glyphShader.frag", "score");
+	this->BoostDisplay.init("glyphShader.vert", "glyphShader.frag", "boost");
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 	this->scoreDisplay.importCharacters("Antonio-Regular.ttf", 0, 256, 128);
+	this->BoostDisplay.importCharacters("Antonio-Regular.ttf", 0, 256, 128);
 
-	// Set the text renderer uniform
+	// Set the text renderer uniforms to have the same orthographic projection
 	glm::mat4 t_projection = glm::ortho(0.0f, static_cast<float>(Width), 0.0f, static_cast<float>(Height));
-	ResourceManager::GetShader("glyph").Use();
-	ResourceManager::GetShader("glyph").SetMatrix4("projection", t_projection, true);
+	ResourceManager::GetShader("score").Use();
+	ResourceManager::GetShader("score").SetMatrix4("projection", t_projection, true);
+	ResourceManager::GetShader("boost").Use();
+	ResourceManager::GetShader("boost").SetMatrix4("projection", t_projection, true);
 
 	// Initialize the boost and ammo meter
 	this->boostMeter = 100.0f;
@@ -76,7 +80,6 @@ void Game::processInput(float dt) {
 
 				this->boostMeter = 0.0f;
 			}
-			
 		}
 		else {
 			this->spaceship->AngVelocity = 90.0f;
@@ -91,7 +94,6 @@ void Game::processInput(float dt) {
 
 			// Rotate the spaceship as well (rotate at the speed that the ship is moving)
 			this->spaceship->Rotation = 90.0f + this->spaceship->Angle;
-
 		}
 
 		// *** Move Clockwise ***
@@ -193,7 +195,7 @@ void Game::update(float dt) {
 			this->boostMeter += 1.0f * dt;
 		}
 
-		std::cout << "Boost meter: " << this->boostMeter << std::endl;
+		this->updateBoost();
 	}
 }
 
@@ -299,7 +301,16 @@ void Game::updateScore() {
 	std::string score = std::to_string(this->score);
 	
 	// Update the score display
-	this->scoreDisplay.renderText(score, 625.0f, 10.0f, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f));
+	this->scoreDisplay.renderText(score, 625.0f, 1150.0f, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f));
+}
+
+void Game::updateBoost() {
+
+	// Convert the boost value to a string
+	std::string boost = std::to_string(this->boostMeter);
+
+	// Update the boost display
+	this->BoostDisplay.renderText(boost, 625.0f, 10.0f, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f));
 }
 
 void Game::reset() {
