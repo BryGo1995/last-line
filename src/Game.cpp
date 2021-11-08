@@ -72,13 +72,12 @@ void Game::processInput(float dt) {
 		// *** Boost ***
 		if (this->Keys[GLFW_KEY_S]) {
 			// Increase speed and decrement boost meter if > 0
-			if (this->boostMeter > 50.0f) {
+			if (this->boostMeter > 0.0f) {
 				this->spaceship->AngVelocity = 150.0f;
-				this->boostMeter -= 1.0f;
+				this->boostMeter -= 2.0f;
 			}
 			else {
-
-				this->boostMeter = 0.0f;
+				this->boostMeter = -20.0f;
 			}
 		}
 		else {
@@ -192,7 +191,7 @@ void Game::update(float dt) {
 			this->boostMeter = 100.0f;
 		}
 		else {
-			this->boostMeter += 1.0f * dt;
+			this->boostMeter += 5.0f * dt;
 		}
 
 		this->updateBoost();
@@ -306,8 +305,18 @@ void Game::updateScore() {
 
 void Game::updateBoost() {
 
+	float valueToDisplay = 0.0f;
+
+	// Check if the boost value is below zero
+	if (this->boostMeter < 0.0f) {
+		valueToDisplay = 0.0f;
+	}
+	else {
+		valueToDisplay = this->boostMeter;
+	}
+
 	// Convert the boost value to a string
-	std::string boost = std::to_string(this->boostMeter);
+	std::string boost = std::to_string(valueToDisplay);
 
 	// Update the boost display
 	this->BoostDisplay.renderText(boost, 625.0f, 10.0f, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f));
