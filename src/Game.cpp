@@ -69,6 +69,7 @@ void Game::processInput(float dt) {
 
 	if (this->State == GAME_ACTIVE) {
 
+		// --------------------------------
 		// *** Boost ***
 		if (this->Keys[GLFW_KEY_S]) {
 			// Increase speed and decrement boost meter if > 0
@@ -84,6 +85,7 @@ void Game::processInput(float dt) {
 			this->spaceship->AngVelocity = 90.0f;
 		}
 
+		// --------------------------------
 		// *** Move Counter Clockwise ***
 		if (this->Keys[GLFW_KEY_A]) {
 			// Perform translation to the spaceship
@@ -95,9 +97,9 @@ void Game::processInput(float dt) {
 			this->spaceship->Rotation = 90.0f + this->spaceship->Angle;
 		}
 
+		// --------------------------------
 		// *** Move Clockwise ***
 		if (this->Keys[GLFW_KEY_D]) {
-			// Rotate clockwise
 			// Perform translation to the spaceship
 			this->spaceship->Angle += this->spaceship->AngVelocity * dt;
 			this->spaceship->Position.x = (float)cos(glm::radians(this->spaceship->Angle)) * this->spaceship->Radius + 625;
@@ -107,21 +109,19 @@ void Game::processInput(float dt) {
 			this->spaceship->Rotation = 90.0f + this->spaceship->Angle;
 		}
 
+		// --------------------------------
 		// *** Fire Gun ***
 		if (this->Keys[GLFW_KEY_SPACE]) {
-
 			this->spaceship->fireBullet(*Renderer);
 		}
 
 		if (this->Keys[GLFW_KEY_ENTER]) {
-
 			// Clear the enter key input since it will affect game reset
 			this->Keys[GLFW_KEY_ENTER] = false;
 		}
 	}
 
 	if (this->State == GAME_OVER) {
-
 		// Reset the game if the player presses enter
 		if (this->Keys[GLFW_KEY_ENTER]) {
 			this->State = GAME_ACTIVE;
@@ -230,7 +230,6 @@ Game::~Game() {
 
 	delete spaceship;
 	delete earth;
-
 	delete Renderer;
 }
 
@@ -306,8 +305,6 @@ void Game::updateScore() {
 void Game::updateBoost() {
 
 	float valueToDisplay = 0.0f;
-
-	// Check if the boost value is below zero
 	if (this->boostMeter < 0.0f) {
 		valueToDisplay = 0.0f;
 	}
@@ -315,11 +312,13 @@ void Game::updateBoost() {
 		valueToDisplay = this->boostMeter;
 	}
 
-	// Convert the boost value to a string
-	std::string boost = std::to_string(valueToDisplay);
+	// Convert the boost float value to a string integer format
+	std::string boost = std::to_string((int)valueToDisplay) + "%";
 
 	// Update the boost display
-	this->BoostDisplay.renderText(boost, 625.0f, 10.0f, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f));
+	float displayVerticalPosition = 10.0f;
+	float displayHorizPosition = (this->Width / 2) - 80.0f;
+	this->BoostDisplay.renderText(boost, displayHorizPosition, displayVerticalPosition, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f));
 }
 
 void Game::reset() {
